@@ -174,3 +174,9 @@ You can also directly modify the underlying [AdvancedListView](https://github.co
 *  Buttons in cells.
 *  Checkboxes in any column as well as tri-state checkboxes.
 *  [And much more...](https://github.com/robinrodricks/FluentListView/blob/master/ADVANCED.md)
+
+## Repository Management
+
+For repository administrators and maintainers:
+
+* [Repository Visibility Guide](REPOSITORY_VISIBILITY_GUIDE.md) - Instructions for changing repository from private to public (Hướng dẫn thay đổi repository từ private sang public)
