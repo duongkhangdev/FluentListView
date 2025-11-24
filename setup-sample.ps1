@@ -60,7 +60,7 @@ Write-Host ""
 Write-Host "Step 4: Copying sample file..." -ForegroundColor Yellow
 Write-Host ""
 Copy-Item ../SampleFluentListViewForm.cs . -Force
-if ($LASTEXITCODE -ne 0) {
+if (-not $?) {
     Write-Host ""
     Write-Host "Error: Failed to copy sample file" -ForegroundColor Red
     Pop-Location
