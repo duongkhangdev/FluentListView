@@ -13,6 +13,14 @@ namespace WinFormsTreeListViewDemo
 {
     public partial class MainForm : Form
     {
+        // Constants for configuration
+        private const int SIMULATED_LOADING_DELAY_MS = 300;
+        private const long MIN_TRACK_SIZE_BYTES = 2 * 1024 * 1024; // 2 MB
+        private const long MAX_TRACK_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB
+        private const int MIN_TRACKS_PER_ALBUM = 8;
+        private const int MAX_TRACKS_PER_ALBUM = 15;
+        private const int MAX_RATING = 5;
+        
         private TreeListView treeListView = null!;
         private ImageList imageList = null!;
         private StarRatingRenderer starRatingRenderer = null!;
@@ -224,7 +232,7 @@ namespace WinFormsTreeListViewDemo
             isLoadingTracks = true;
             
             // Simulate async loading with delay
-            await Task.Delay(300);
+            await Task.Delay(SIMULATED_LOADING_DELAY_MS);
             
             // Generate sample tracks based on album name
             var tracks = GenerateTracksForAlbum(album.Title);
@@ -242,13 +250,13 @@ namespace WinFormsTreeListViewDemo
             var tracks = new List<ITreeNode>();
             Random rand = new Random(albumName.GetHashCode()); // Consistent random based on album name
             
-            int trackCount = rand.Next(8, 15);
+            int trackCount = rand.Next(MIN_TRACKS_PER_ALBUM, MAX_TRACKS_PER_ALBUM);
             for (int i = 1; i <= trackCount; i++)
             {
                 string trackName = $"Track {i:D2}";
-                long sizeBytes = (long)(rand.NextDouble() * 8 * 1024 * 1024 + 2 * 1024 * 1024); // 2-10 MB
+                long sizeBytes = (long)(rand.NextDouble() * (MAX_TRACK_SIZE_BYTES - MIN_TRACK_SIZE_BYTES) + MIN_TRACK_SIZE_BYTES);
                 DateTime lastPlayed = DateTime.Now.AddDays(-rand.Next(1, 365));
-                int rating = rand.Next(0, 6); // 0-5 stars
+                int rating = rand.Next(0, MAX_RATING + 1); // 0-5 stars
                 
                 tracks.Add(new Track(trackName, sizeBytes, lastPlayed, rating));
             }
