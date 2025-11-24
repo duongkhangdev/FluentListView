@@ -108,6 +108,30 @@ var currentItems = ((List<FileObject>)list.Items);
 var selectedItems = list.SelectedItems.ToList<FileObject>();
 ```
 
+## Sample Application
+
+A comprehensive sample application is included that demonstrates advanced features like buttons, icons, and dynamic content. The sample shows a task manager interface with:
+
+- Task column with icons and names
+- Priority column with colored indicators (Low/Medium/High/Critical)
+- Status column with status icons (Not Started/In Progress/Completed/Frozen)
+- Action column with clickable buttons that change based on task status
+
+See [QUICKSTART.md](QUICKSTART.md) for step-by-step instructions to run the sample, or run the automated setup script:
+
+```bash
+# Windows Command Prompt
+setup-sample.bat
+
+# PowerShell or Cross-platform
+./setup-sample.ps1
+```
+
+For detailed documentation:
+- [QUICKSTART.md](QUICKSTART.md) - Quick setup guide
+- [SAMPLE_README.md](SAMPLE_README.md) - Full sample documentation (English)
+- [SAMPLE_README_VI.md](SAMPLE_README_VI.md) - Hướng dẫn mẫu (Tiếng Việt)
+
 ## Basic API
 
 - list.**Properties** - Which properties of your objects to display on the view.
