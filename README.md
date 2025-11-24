@@ -159,6 +159,29 @@ var selectedItems = list.SelectedItems.ToList<FileObject>();
 - list.**ColumnWidth** - The width of additional columns.
 
 
+## Samples
+
+### WinForms TreeListView Demo
+
+A comprehensive sample demonstrating how to use the `TreeListView` component in a WinForms application. This sample showcases:
+
+- **Hierarchical Data Display**: 3-level hierarchy (Artist → Album → Track) with expand/collapse
+- **Custom Star Rating Renderer**: Interactive 0-5 star rating column with mouse hover and click-to-edit
+- **Lazy Loading**: Asynchronous track loading when expanding albums
+- **Column Sorting**: Click headers to sort while maintaining the tree hierarchy
+- **Icons**: Different icons for each node type (Artist, Album, Track)
+- **Double-Click Interaction**: Shows "Now Playing" message for tracks
+
+**Location**: [`Samples/WinFormsTreeListViewDemo/`](Samples/WinFormsTreeListViewDemo/)
+
+**Documentation**: [README.WinFormsSample.md](Samples/WinFormsTreeListViewDemo/README.WinFormsSample.md)
+
+**How to Run**:
+```bash
+dotnet run --project Samples/WinFormsTreeListViewDemo/WinFormsTreeListViewDemo.csproj
+```
+
+
 ## Advanced API
 
 FluentListView objects are a light-weight wrapper over `AdvancedListView` and `FastListView`. We needed to use the wrapper pattern because the underlying list is created depending on the features you enable. In most cases a `FastListView` suffices, but if certain advanced features are used we create a `AdvancedListView`. This gives you better performance in most use cases. A wrapper also allows us to expose a simpler and more out-of-the-box API.
